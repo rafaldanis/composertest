@@ -1,0 +1,29 @@
+{
+    "name": "rafal/composertest",
+    "require": {
+        "components/jquery": "^3.3",
+        "twitter/bootstrap": "^4.2",
+		"phpunit/phpunit": "^7.5.1",
+		"facebook/php-sdk-v4": "5.6.3"
+    },
+	"autoload": {
+		"psr-4": {
+			"ComposerClass\\ComposerScript\\": ""
+		}
+	},
+	"scripts": {
+        "post-install-cmd": [
+            "ComposerClass\\ComposerScript\\FileClass::copy"
+        ],
+        "post-update-cmd": [
+			"ComposerClass\\ComposerScript\\FileClass::copy"
+        ]
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "copy-file": {
+            "vendor/twitter/": "webroot/css",
+			"vendor/components/jquery": "webroot/js/jquery"
+        }
+    }
+}
